@@ -20,7 +20,11 @@ After the gem is installed, run the install command to create the configuration 
 rails generate errortracking --api-key <your-errortracking.net-api-key>
 ```
 
-A single file called __error_tracking.rb__ will be added under __config/initializers__.
+A single file called __error_tracking.rb__ will be added under __config/initializers__ with content similar to below:
+
+``` ruby
+YourApplicationName::Application.config.middleware.use ErrorTracking::Tracker
+```
 
 ## License
 
