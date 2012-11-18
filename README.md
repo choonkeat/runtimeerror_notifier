@@ -23,7 +23,8 @@ rails generate errortracking --api-key <your-errortracking.net-api-key>
 A single file called __error_tracking.rb__ will be added under __config/initializers__ with content similar to below:
 
 ``` ruby
-YourApplicationName::Application.config.middleware.use ErrorTracking::Tracker
+YourApplicationName::Application.config.middleware.use ErrorTracking::Tracker,
+recipients: ['nexus.js+qqkv9p8p-xx6v6j6fditzw@localhost']
 ```
 
 ## License
