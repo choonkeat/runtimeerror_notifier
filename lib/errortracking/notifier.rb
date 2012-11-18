@@ -9,7 +9,7 @@ module ErrorTracking
   class Notifier < ActionMailer::Base
     API_ENDPOINT = 'http://127.0.0.1:3000/incoming_emails'
     SENDER_ADDRESS = 'notifier@errortracking.net'
-    RECIPIENTS = ['nexus.js+qqkv9p8p-xx6v6j6fditzw@localhost']
+    RECIPIENTS = []
     SECTIONS = %w(request session environment backtrace)
     TEMPLATE_NAME = 'errortracking'
 
