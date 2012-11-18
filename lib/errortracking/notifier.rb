@@ -1,13 +1,15 @@
 require 'action_dispatch'
 require 'action_mailer'
-require File.join(File.dirname(__FILE__), 'missing_controller')
 require 'pp'
+require 'httparty'
+require File.join(File.dirname(__FILE__), 'missing_controller')
+
 
 module ErrorTracking
   class Notifier < ActionMailer::Base
     API_ENDPOINT = 'http://127.0.0.1:3000/incoming_emails'
     SENDER_ADDRESS = 'notifier@errortracking.net'
-    RECIPIENTS = []
+    RECIPIENTS = ['nexus.js+qqkv9p8p-xx6v6j6fditzw@localhost']
     SECTIONS = %w(request session environment backtrace)
     TEMPLATE_NAME = 'errortracking'
 
@@ -16,10 +18,15 @@ module ErrorTracking
 
     def notification(env, exception, options={})
       email = compose_email(env, exception, options)
-      # make post request to end point
+      make_request(email)
+      email
     end
 
     protected
+
+    def make_request(email)
+      HTTParty.post(API_ENDPOINT, body: {message: email.to_s})
+    end
 
     def compose_email(env, exception, options)
       @attr = exception_attributes(env, exception, options)
