@@ -17,7 +17,7 @@ gem 'runtimeerror'
 After the gem is installed, run the install command to create the configuration files
 
 ``` sh
-rails generate runtimeerror
+rails generate runtimeerror_notifier:install
 ```
 
 A single file called __runtimeerror_notifier.rb__ will be added under __config/initializers__ with content similar to below:
