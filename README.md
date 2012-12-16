@@ -20,10 +20,10 @@ After the gem is installed, run the install command to create the configuration 
 rails generate runtimeerror
 ```
 
-A single file called __runtimeerror_tracking.rb__ will be added under __config/initializers__ with content similar to below:
+A single file called __runtimeerror_notifier.rb__ will be added under __config/initializers__ with content similar to below:
 
 ``` ruby
-YourApplicationName::Application.config.middleware.use RuntimeError::Tracker,
+YourApplicationName::Application.config.middleware.use RuntimeerrorNotifier::Tracker,
 recipients: ['foo+qqkv9p8p-xx6v6j6fditzw@runtimeerror.net']
 ```
 

@@ -1,6 +1,6 @@
-require 'runtimeerror/notifier'
+require 'runtimeerror_notifier/notifier'
 
-module RuntimeError
+module RuntimeerrorNotifier
   class Tracker
     def initialize(app, options={})
       @app, @options = app, options
@@ -9,7 +9,7 @@ module RuntimeError
     def call(env)
      @app.call(env)
     rescue Exception => ex
-      RuntimeError::Notifier.notification(env, ex)
+      RuntimeerrorNotifier::Notifier.notification(env, ex)
       raise ex
     end
   end

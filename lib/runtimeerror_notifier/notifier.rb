@@ -4,15 +4,15 @@ require 'pp'
 require 'httparty'
 require File.join(File.dirname(__FILE__), 'missing_controller')
 
-module RuntimeError
+module RuntimeerrorNotifier
   class Notifier < ActionMailer::Base
     API_ENDPOINT = 'http://127.0.0.1:3000/incoming_emails'
     SENDER_ADDRESS = 'notifier@runtimeerror.net'
     RECIPIENTS = []
     SECTIONS = %w(request session environment backtrace)
-    TEMPLATE_NAME = 'runtimeerror'
+    TEMPLATE_NAME = 'runtimeerror_notifier'
 
-    self.mailer_name = 'runtimeerror'
+    self.mailer_name = 'runtimeerror_notifier'
     self.append_view_path File.join(File.dirname(__FILE__), '..', '..', 'templates')
 
     def notification(env, exception, options={})
