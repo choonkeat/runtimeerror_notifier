@@ -24,7 +24,7 @@ A single file called __runtimeerror_tracking.rb__ will be added under __config/i
 
 ``` ruby
 YourApplicationName::Application.config.middleware.use RuntimeError::Tracker,
-recipients: ['nexus.js+qqkv9p8p-xx6v6j6fditzw@runtimeerror.net]
+recipients: ['foo+qqkv9p8p-xx6v6j6fditzw@runtimeerror.net']
 ```
 
 You may obtain the email address by configuring your repository at [RuntimeError.net](http://runtimeerror.net)
