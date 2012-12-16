@@ -11,7 +11,7 @@ At the moment, we support Rails 3 only. We will extend support to other apps in 
 Add it as a gem in your __Gemfile__
 
 ``` ruby
-gem 'runtimeerror'
+gem 'runtimeerror_notifier'
 ```
 
 After the gem is installed, run the install command to create the configuration files
