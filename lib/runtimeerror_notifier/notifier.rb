@@ -52,7 +52,7 @@ module RuntimeerrorNotifier
     end
 
     def compose_subject(attr)
-      subject = '[Error]'
+      subject = ''
       subject << formatted_controller_name(attr[:kontroller])
       subject << " (#{attr[:exception].class})"
       subject << " #{attr[:exception].message.inspect}"
