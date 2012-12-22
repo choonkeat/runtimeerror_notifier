@@ -23,7 +23,7 @@ rails generate runtimeerror_notifier:install
 A single file called __runtimeerror_notifier.rb__ will be added under __config/initializers__ with content similar to below:
 
 ``` ruby
-YourApplicationName::Application.config.middleware.use RuntimeerrorNotifier::Tracker,
+Rails.application.config.middleware.use RuntimeerrorNotifier::Tracker,
 recipients: ['foo+qqkv9p8p-xx6v6j6fditzw@runtimeerror.net']
 ```
 
