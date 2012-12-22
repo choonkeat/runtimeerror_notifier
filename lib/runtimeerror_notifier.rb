@@ -9,7 +9,7 @@ module RuntimeerrorNotifier
     def call(env)
      @app.call(env)
     rescue Exception => ex
-      RuntimeerrorNotifier::Notifier.notification(env, ex)
+      RuntimeerrorNotifier::Notifier.notification(env, ex, @options)
       raise ex
     end
   end
