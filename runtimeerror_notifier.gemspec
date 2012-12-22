@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = '>= 1.3.6'
 
-  s.add_dependency 'girl_friday', '~> 0.11.1'
   s.add_dependency 'httparty', '~> 0.9.0'
 
   s.add_development_dependency 'rspec', '~> 2.11.0'
