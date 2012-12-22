@@ -72,11 +72,24 @@ module RuntimeerrorNotifier
     end
 
     def clean_backtrace(exception)
-      if Rails && Rails.respond_to?(:backtrace_cleaner)
+      if defined?(Rails) && Rails.respond_to?(:backtrace_cleaner)
         Rails.backtrace_cleaner.send(:filter, exception.backtrace)
       else
         exception.backtrace
       end
     end
+
+    def inspect_object(object)
+      case object
+      when Hash, Array
+        object.inspect
+      when ActionController::Base
+        "#{object.controller_name}##{object.action_name}"
+      else
+        object.to_s
+      end
+    end
+    helper_method :inspect_object
+
   end
 end
