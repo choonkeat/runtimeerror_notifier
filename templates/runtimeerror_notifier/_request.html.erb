@@ -1,0 +1,7 @@
+<table class="table table-hover table-condensed">
+<tr><td>URL</td><td><%= @attr[:request].url %></td></tr>
+<tr><td>IP address</td><td><%= @attr[:request].remote_ip %></td></tr>
+<tr><td>Parameters</td><td><%= @attr[:request].filtered_parameters.inspect %></td></tr>
+<tr><td>Rails root</td><td><%= Rails.root %></td></tr>
+<tr><td>Timestamp</td><td><%= Time.current %></td></tr>
+</table>

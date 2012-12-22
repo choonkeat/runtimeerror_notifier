@@ -33,7 +33,7 @@ module RuntimeerrorNotifier
            :from => @attr[:sender_address],
            :subject => compose_subject(@attr),
            :template_name => TEMPLATE_NAME) do |format|
-        format.text
+        format.html
       end
     end
 

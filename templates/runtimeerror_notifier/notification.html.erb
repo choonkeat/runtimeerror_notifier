@@ -1,25 +1,24 @@
-<%= @attr[:exception].class %> occurred in <%= @attr[:kontroller].controller_name %>
-
-  <%= raw @attr[:exception].message %>
-  <%= raw @attr[:backtrace].first %>
-
+<h2><%= @attr[:exception].class %> occurred in <%= @attr[:kontroller].controller_name %></h2>
+<pre>
+<%= @attr[:exception].message %>
+<%= @attr[:backtrace].first %>
+</pre>
 <%
     sections = @attr[:sections].map do |section|
       begin
         summary = render(section).strip
         if summary.present?
           title = render("title", :title => section).strip
-          "#{title}\n\n#{summary.gsub(/^/, "  ")}\n\n"
+          "#{title}#{summary}"
         end
 
       rescue Exception => e
         title = render("title", :title => section).strip
-        summary = ["ERROR: Failed to generate exception summary:", [e.class.to_s, e.message].join(": "), e.backtrace && e.backtrace.join("\n")].compact.join("\n\n")
+        summary = ["ERROR: Failed to generate #{section.inspect}:", [e.class.to_s, e.message].join(": "), e.backtrace && e.backtrace.join("\n")].compact.join("\n\n")
 
-        [title, summary.gsub(/^/, "  "), nil].join("\n\n")
+        [title, "<pre>" + summary + "</pre>"].join("")
       end
     end.join
     sections = sections.force_encoding('UTF-8').encode('UTF-16LE', :invalid => :replace).encode('UTF-8') if sections.respond_to?(:force_encoding)
-%>
-
+-%>
 <%= raw sections %>

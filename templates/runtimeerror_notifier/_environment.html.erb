@@ -1,0 +1,11 @@
+<% filtered_env = @attr[:request].filtered_env -%>
+<% max = filtered_env.keys.map(&:to_s).max { |a, b| a.length <=> b.length } -%>
+<table class="table table-hover table-condensed">
+<% filtered_env.keys.map(&:to_s).sort.each do |key| -%>
+<tr><td><%=key%></td><td><%=inspect_object(filtered_env[key])%></td></tr>
+<% end -%>
+</table>
+<table class="table table-hover table-condensed">
+<tr><td>Process</td><td><%= $$ %></td></tr>
+<tr><td>Server</td><td><%= `hostname`.chomp %></td></tr>
+</table>
