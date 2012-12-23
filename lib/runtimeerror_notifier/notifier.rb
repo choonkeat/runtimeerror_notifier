@@ -68,7 +68,7 @@ module RuntimeerrorNotifier
     end
 
     def shorten_subject(subject)
-      subject.length > 120 ? subject[0...120] + "..." : subject
+      subject
     end
 
     def clean_backtrace(exception)
