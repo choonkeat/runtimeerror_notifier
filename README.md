@@ -20,14 +20,18 @@ After the gem is installed, run the install command to create the configuration 
 rails generate runtimeerror_notifier:install
 ```
 
-A single file called __runtimeerror_notifier.rb__ will be added under __config/initializers__ with content similar to below:
+NOTE: add ``RAILS_ENV=production`` if you've only added the gem into your ``:production`` group; Or you can simply create the file (and its content) mentioned below
+
+The file __config/initializers/runtimeerror_notifier.rb__ will be created with the following content:
 
 ``` ruby
-Rails.application.config.middleware.use RuntimeerrorNotifier::Tracker,
-recipients: ['foo+qqkv9p8p-xx6v6j6fditzw@runtimeerror.net']
+if defined?(RuntimeerrorNotifier)
+  Rails.application.config.middleware.use RuntimeerrorNotifier::Tracker,
+  recipients: ['your-application-email@runtimeerror.net']
+end
 ```
 
-You may obtain the email address by configuring your repository at [RuntimeError.net](http://runtimeerror.net)
+Obtain the email address by configuring your repository at [RuntimeError.net](http://runtimeerror.net)
 
 ## License
 
