@@ -21,7 +21,14 @@ module RuntimeerrorNotifier
     end
 
     def notification(env, exception, options={})
-      email = compose_email(env, exception, options)
+      original_exception = if exception.respond_to?(:original_exception)
+        exception.original_exception
+      elsif exception.respond_to?(:continued_exception)
+        exception.continued_exception
+      else
+        exception
+      end
+      email = compose_email(env, original_exception, options)
       make_request(email)
       email
     end
