@@ -14,9 +14,8 @@
 
       rescue Exception => e
         title = render("title", :title => section).strip
-        summary = ["ERROR: Failed to generate #{section.inspect}:", [e.class.to_s, e.message].join(": "), e.backtrace && e.backtrace.join("\n")].compact.join("\n\n")
-
-        [title, "<pre>" + summary + "</pre>"].join("")
+        summary = [[e.class.to_s, e.message].join(": "), e.backtrace && e.backtrace.join("\n")].compact.join("\n\n")
+        [title, "<p><i>None</i></p><pre style='display:none'>" + summary + "</pre>"].join("")
       end
     end.join
     sections = sections.force_encoding('UTF-8').encode('UTF-16LE', :invalid => :replace).encode('UTF-8') if sections.respond_to?(:force_encoding)

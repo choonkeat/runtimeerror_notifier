@@ -26,8 +26,7 @@ The file __config/initializers/runtimeerror_notifier.rb__ will be created with t
 
 ``` ruby
 if defined?(RuntimeerrorNotifier)
-  Rails.application.config.middleware.use RuntimeerrorNotifier::Tracker,
-  recipients: ['your-application-email@runtimeerror.net']
+  RuntimeerrorNotifier.for 'secret_email_generated_for_you@runtimeerror.net'
 end
 ```
 

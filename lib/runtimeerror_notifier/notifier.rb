@@ -15,6 +15,11 @@ module RuntimeerrorNotifier
     self.mailer_name = 'runtimeerror_notifier'
     self.append_view_path File.join(File.dirname(__FILE__), '..', '..', 'templates')
 
+    def self.for(*emails)
+      RECIPIENTS.push(*emails)
+      RECIPIENTS.uniq!
+    end
+
     def notification(env, exception, options={})
       email = compose_email(env, exception, options)
       make_request(email)
