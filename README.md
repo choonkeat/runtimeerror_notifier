@@ -27,6 +27,9 @@ The file __config/initializers/runtimeerror_notifier.rb__ will be created with t
 ``` ruby
 if defined?(RuntimeerrorNotifier)
   RuntimeerrorNotifier.for 'secret_email_generated_for_you@runtimeerror.net'
+  RuntimeerrorNotifier::Notifier::IGNORED_EXCEPTIONS.push(*%w[
+    ActionController::RoutingError
+  ])
 end
 ```
 

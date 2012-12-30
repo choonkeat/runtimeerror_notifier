@@ -4,7 +4,7 @@ module RuntimeerrorNotifier
   def self.for(*emails)
     RuntimeerrorNotifier::Notifier.for(*emails)
     if defined?(::Rails)
-      ::Rails.application.config.middleware.insert 0, 'Rack::Runtime', RuntimeerrorNotifier::Tracker
+      ::Rails.application.config.middleware.insert 0, RuntimeerrorNotifier::Tracker
     end
     renderer_class = if defined?(::ActionDispatch::DebugExceptions)
       ::ActionDispatch::DebugExceptions

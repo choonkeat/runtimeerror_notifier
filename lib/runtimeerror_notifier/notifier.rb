@@ -11,6 +11,7 @@ module RuntimeerrorNotifier
     RECIPIENTS = []
     SECTIONS = %w(request session environment backtrace)
     TEMPLATE_NAME = 'runtimeerror_notifier'
+    IGNORED_EXCEPTIONS = []
 
     self.mailer_name = 'runtimeerror_notifier'
     self.append_view_path File.join(File.dirname(__FILE__), '..', '..', 'templates')
@@ -28,9 +29,13 @@ module RuntimeerrorNotifier
       else
         exception
       end
-      email = compose_email(env, original_exception, options)
-      make_request(email)
-      email
+      case exception.class.name
+      when *IGNORED_EXCEPTIONS
+        # ignore
+      else
+        email = compose_email(env, original_exception, options)
+        make_request(email)
+      end
     end
 
     protected
