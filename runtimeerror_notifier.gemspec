@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name         = 'runtimeerror_notifier'
-  s.version      = '0.0.8'
+  s.version      = '0.0.9'
   s.platform     = Gem::Platform::RUBY
   s.authors      = ['Wong Liang Zan', 'Chew Choon Keat']
   s.email        = ['zan@liangzan.net', 'choonkeat@gmail.com']
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = '>= 1.3.6'
 
-  s.add_dependency 'httparty', '~> 0.9.0'
+  s.add_dependency 'httparty', '~> 0.10.0'
 
   s.add_development_dependency 'rspec', '~> 2.11.0'
   s.add_development_dependency 'shoulda', '~> 3.3.2'
