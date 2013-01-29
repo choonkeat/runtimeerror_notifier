@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec', '~> 2.11.0'
   s.add_development_dependency 'shoulda', '~> 3.3.2'
+  s.add_development_dependency 'faker'
 
   s.files = Dir.glob('lib/**/*')
   s.files += %w(LICENSE README.md CHANGELOG.md)
