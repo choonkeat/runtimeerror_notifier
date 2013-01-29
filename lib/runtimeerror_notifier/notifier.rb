@@ -18,6 +18,7 @@ module RuntimeerrorNotifier
 
     def self.for(*emails)
       RECIPIENTS.push(*emails)
+      RECIPIENTS.reject!(&:empty?)
       RECIPIENTS.uniq!
     end
 
