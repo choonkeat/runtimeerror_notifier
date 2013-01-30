@@ -34,4 +34,59 @@ describe RuntimeerrorNotifier::Notifier do
       it { should == [bob_email, rob_email, dob_email] }
     end
   end
+
+  context '#notification' do
+    subject { RuntimeerrorNotifier::Notifier.notification(env, excp, opts) }
+    let(:env) { { env: 'env' } }
+    let(:opts) { {} }
+
+    context 'original exception' do
+      let(:excp) { Exception.new }
+      let(:original_excp) { double('original exception') }
+
+      before do
+        excp.stub(:original_exception) { original_excp }
+        original_excp.stub(:backtrace)
+        original_excp.stub(:message)
+        HTTParty.should_receive(:post)
+      end
+
+      it { expect { subject }.to_not raise_error }
+    end
+
+    context 'continued exception' do
+      let(:excp) { Exception.new }
+      let(:continued_excp) { double('continued exception') }
+
+      before do
+        excp.stub(:continued_exception) { continued_excp }
+        continued_excp.stub(:backtrace)
+        continued_excp.stub(:message)
+        HTTParty.should_receive(:post)
+      end
+
+      it { expect { subject }.to_not raise_error }
+    end
+
+    context 'normal exception' do
+      let(:excp) { Exception.new }
+
+      before do
+        HTTParty.should_receive(:post)
+      end
+
+      it { expect { subject }.to_not raise_error }
+    end
+
+    context 'ignored exception' do
+      let(:excp) { Exception.new }
+
+      before do
+        RuntimeerrorNotifier::Notifier::IGNORED_EXCEPTIONS.push excp.class.name
+        HTTParty.should_not_receive(:post)
+      end
+
+      it { expect { subject }.to_not raise_error }
+    end
+  end
 end
