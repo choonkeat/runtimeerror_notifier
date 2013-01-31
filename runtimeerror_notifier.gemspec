@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport'
   s.add_dependency 'actionpack'
   s.add_dependency 'actionmailer'
+  s.add_dependency 'rake'
 
   s.add_development_dependency 'rspec', '~> 2.11.0'
   s.add_development_dependency 'shoulda', '~> 3.3.2'
