@@ -11,12 +11,13 @@ module RuntimeerrorNotifier
     private
 
     def template_path
-      File.join File.dirname(__FILE__), '..', '..', 'templates', 'runtimeerror_notifier', 'javascript_notifier.js.erb'
+      File.join File.dirname(__FILE__), '..', '..', 'templates', 'runtimeerror_notifier', 'javascript_notifier'
     end
 
     def notifier_opts
       {
         file: template_path,
+        handlers: %w(erb),
         layout: false,
         use_full_path: false,
         locals: { }
