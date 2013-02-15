@@ -5,7 +5,7 @@
         message: error.message,
         lineNumber: error.lineNumber,
         fileName: error.fileName,
-        stack: error.stack
+        stack: (error.stack || '').split("\n")
       }
       var data = escape(JSON.stringify(errData));
       var host = '<%= ENV['RUNTIMEERROR_NOTIFICATION_URL'] %>';
