@@ -24,6 +24,7 @@
 
   window.onerror = function(message, fileName, lineNumber) {
     setTimeout(function() {
+      // uncaught exceptions has no context of the stack
       RuntimeerrorNotifier.notify({
         message : message,
         fileName: fileName,
