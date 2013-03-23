@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name         = 'runtimeerror_notifier'
-  s.version      = '0.0.10'
+  s.version      = '0.0.11'
   s.platform     = Gem::Platform::RUBY
   s.authors      = ['Wong Liang Zan', 'Chew Choon Keat']
   s.email        = ['zan@liangzan.net', 'choonkeat@gmail.com']
@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.11.0'
   s.add_development_dependency 'shoulda', '~> 3.3.2'
 
-  s.files = Dir.glob('lib/**/*')
-  s.files += %w(LICENSE README.md CHANGELOG.md)
+  s.files = Dir.glob('{lib,templates}/**/*') + %w(LICENSE README.md CHANGELOG.md)
   s.require_path = 'lib'
 end
