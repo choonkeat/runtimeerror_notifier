@@ -26,7 +26,9 @@ end
 
 # Hook to capture rake errors
 Rake.application.instance_eval do
-  class << self
-    include RuntimeerrorNotifier::RakeHandler
+  if !ENV['RAILS_ENV'].nil? && ENV['RAILS_ENV'] != 'development'
+    class << self
+      include RuntimeerrorNotifier::RakeHandler
+    end
   end
 end
