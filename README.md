@@ -18,6 +18,16 @@ RAILS_ENV=production rails generate runtimeerror_notifier:install
 
 **Step 3.** Obtain a secret email address from [RuntimeError.net](http://runtimeerror.net) then set it as environment variable ``RUNTIMEERROR_EMAIL``
 
+## Preventing errors in development
+
+To prevent errors from being sent out while developing, you can add the gem to the __production__ group in your __Gemfile__.
+
+``` ruby
+group :production do
+  gem 'runtimeerror_notifier'
+end
+```
+
 ## License
 
 &copy; RuntimeError.net 2013. View LICENSE for details.
