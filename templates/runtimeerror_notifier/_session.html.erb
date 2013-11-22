@@ -1,6 +1,6 @@
 <% if @attr.try(:[], :request).try(:url).present? -%>
 <table class="table table-hover table-condensed">
-<tr><td>session id</td><td><%= @attr[:request].ssl? ? "[FILTERED]" : ((@attr[:request].session['session_id'] || @attr[:request].env["rack.session.options"][:id]).inspect) %></td></tr>
-<tr><td>data</td><td><%= PP.pp(@attr[:request].session, "") %></td></tr>
+<tr><td>session id</td><td><%= @attr[:request].ssl? ? "[FILTERED]" : ((@attr[:request].session['session_id'] || @attr[:request].env["rack.session.options"][:id]).inspect) rescue nil %></td></tr>
+<tr><td>data</td><td><%= PP.pp(@attr[:request].session, "") rescue nil %></td></tr>
 </table>
 <% end -%>
