@@ -18,8 +18,9 @@ module RuntimeerrorNotifier
 
     def self.for(*emails)
       RECIPIENTS.push(*emails)
-      RECIPIENTS.reject!(&:empty?)
+      RECIPIENTS.reject! {|s| s.to_s.strip.empty? }
       RECIPIENTS.uniq!
+      $stderr.puts "WARNING [RuntimeerrorNotifier.for]: No email recipients configured" if $DEBUG && RECIPIENTS.empty?
     end
 
     def notification(env, exception, options={})
