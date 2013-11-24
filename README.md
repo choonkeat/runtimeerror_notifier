@@ -20,13 +20,7 @@ RAILS_ENV=production rails generate runtimeerror_notifier:install
 
 ## Preventing errors in development
 
-To prevent errors from being sent out while developing, you can add the gem to the __production__ group in your __Gemfile__.
-
-``` ruby
-group :production do
-  gem 'runtimeerror_notifier'
-end
-```
+To prevent errors from being sent out while developing, make sure environment variable `RUNTIMEERROR_EMAIL` is unset.
 
 ## License
 
