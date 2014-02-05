@@ -6,7 +6,7 @@ require File.join(File.dirname(__FILE__), 'missing_controller')
 
 module RuntimeerrorNotifier
   class Notifier < ActionMailer::Base
-    API_ENDPOINT = ENV['RUNTIMEERROR_URL'] || 'http://runtimeerror.net/incoming_emails'
+    API_ENDPOINT = ENV['RUNTIMEERROR_URL'] || "http://js.runtimeerror.net/incoming_emails"
     SENDER_ADDRESS = 'notifier@runtimeerror.net'
     RECIPIENTS = []
     SECTIONS = %w(request session environment backtrace)
