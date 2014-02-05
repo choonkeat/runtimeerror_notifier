@@ -7,7 +7,7 @@ This gem acts as the agent for [RuntimeError.net](http://runtimeerror.net). Inst
 **Step 1.** Add it as a gem in your __Gemfile__
 
 ``` ruby
-gem 'runtimeerror_notifier', git: 'git://github.com/develsadvocates/exception_notification_http.git', branch: 'released-v0'
+gem 'runtimeerror_notifier'
 ```
 
 **Step 2.** Execute the following command to generate __config/initializers/runtimeerror_notifier.rb__
