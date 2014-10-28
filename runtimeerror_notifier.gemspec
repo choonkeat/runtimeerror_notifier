@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name         = 'runtimeerror_notifier'
-  s.version      = '0.0.19'
+  s.version      = '0.0.20'
   s.platform     = Gem::Platform::RUBY
   s.authors      = ['Wong Liang Zan', 'Chew Choon Keat']
   s.email        = ['zan@liangzan.net', 'choonkeat@gmail.com']
-  s.homepage     = 'https://github.com/develsadvocates/runtimeerror_notification'
+  s.homepage     = 'https://github.com/develsadvocates/runtimeerror_notifier'
   s.summary      = 'Handles uncaught exceptions from your application and integrates tightly with your project management tool.'
   s.description  = 'This gem installs the agent of RuntimeError.net to your application. It handles uncaught exceptions from your application and tightly integrates exceptions with your project management tool.'
 

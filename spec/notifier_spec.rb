@@ -12,7 +12,7 @@ describe RuntimeerrorNotifier::Notifier do
     context 'single email' do
       let(:email) { Faker::Internet.free_email }
       before { RuntimeerrorNotifier::Notifier.for(email) }
-      after { RuntimeerrorNotifier::Notifier::RECIPIENTS = [] }
+      after { RuntimeerrorNotifier::Notifier::RECIPIENTS.clear }
       it { should == [email] }
     end
 
@@ -21,7 +21,7 @@ describe RuntimeerrorNotifier::Notifier do
       let(:rob_email) { Faker::Internet.email('rob') }
       let(:dob_email) { Faker::Internet.email('dob') }
       before { RuntimeerrorNotifier::Notifier.for(bob_email, rob_email, dob_email) }
-      after { RuntimeerrorNotifier::Notifier::RECIPIENTS = [] }
+      after { RuntimeerrorNotifier::Notifier::RECIPIENTS.clear }
       it { should == [bob_email, rob_email, dob_email] }
     end
 
@@ -30,7 +30,7 @@ describe RuntimeerrorNotifier::Notifier do
       let(:rob_email) { Faker::Internet.email('rob') }
       let(:dob_email) { Faker::Internet.email('dob') }
       before { RuntimeerrorNotifier::Notifier.for(bob_email, rob_email, dob_email, rob_email) }
-      after { RuntimeerrorNotifier::Notifier::RECIPIENTS = [] }
+      after { RuntimeerrorNotifier::Notifier::RECIPIENTS.clear }
       it { should == [bob_email, rob_email, dob_email] }
     end
   end

@@ -27,7 +27,7 @@ describe RuntimeerrorNotifier::Tracker do
       end
 
       it 'should call notification with the exception and environment variables' do
-        expect { subject }.to raise_error(excp)
+        expect { subject }.to raise_error
       end
     end
   end
