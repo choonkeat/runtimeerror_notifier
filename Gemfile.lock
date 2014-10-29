@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    runtimeerror_notifier (0.0.22)
+    runtimeerror_notifier (0.0.23)
       actionmailer
       actionpack
       activesupport

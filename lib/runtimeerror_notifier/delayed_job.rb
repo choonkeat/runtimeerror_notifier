@@ -2,7 +2,7 @@
   begin
     block.call(job, *args)
   rescue Exception => e
-    ::RuntimeerrorNotifier::Notifier.notification({ job: job, args: args }, e)
+    ::RuntimeerrorNotifier::Notifier.notification({ 'job' => job.attributes, 'args' => args }, e)
     raise
   end
 end
