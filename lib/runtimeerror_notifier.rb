@@ -2,6 +2,7 @@ require 'runtimeerror_notifier/notifier'
 require 'runtimeerror_notifier/tracker'
 require 'runtimeerror_notifier/railtie' if defined?(Rails::Railtie)
 require 'runtimeerror_notifier/sidekiq' if defined?(Sidekiq)
+require 'runtimeerror_notifier/delayed_job' if defined?(Delayed) && defined?(Delayed::Worker)
 
 module RuntimeerrorNotifier
   def self.for(*emails)
