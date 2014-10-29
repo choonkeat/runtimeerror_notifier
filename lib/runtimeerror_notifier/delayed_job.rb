@@ -1,4 +1,3 @@
-puts "setup Delayed::Worker"
 ::Delayed::Worker.lifecycle.around(:invoke_job) do |job, *args, &block|
   begin
     block.call(job, *args)
