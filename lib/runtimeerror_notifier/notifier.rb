@@ -42,6 +42,7 @@ module RuntimeerrorNotifier
         email = compose_email(env, original_exception, options)
         make_request(email)
       end
+      mail.perform_deliveries = false
     end
 
     protected

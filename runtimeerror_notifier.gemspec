@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name         = 'runtimeerror_notifier'
-  s.version      = '0.0.25'
+  s.version      = '0.0.26'
   s.platform     = Gem::Platform::RUBY
   s.authors      = ['Wong Liang Zan', 'Chew Choon Keat']
   s.email        = ['zan@liangzan.net', 'choonkeat@gmail.com']
