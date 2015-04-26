@@ -24,7 +24,7 @@ module RuntimeerrorNotifier
     end
 
     def self.notification(env, exception, options={})
-      self.notification_mail(env, exception, options).try(:deliver_later) # Rails 4
+      self.notification_mail(env, exception, options).try(:deliver_later) # Rails 4.2
     end
 
     def notification_mail(env, exception, options={})
@@ -41,8 +41,8 @@ module RuntimeerrorNotifier
       else
         email = compose_email(env, original_exception, options)
         make_request(email)
+        email.try(:perform_deliveries=, false)
       end
-      mail.perform_deliveries = false
     end
 
     protected
