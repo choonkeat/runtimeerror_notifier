@@ -23,7 +23,11 @@ module RuntimeerrorNotifier
       $stderr.puts "WARNING [RuntimeerrorNotifier.for]: No email recipients configured" if $DEBUG && RECIPIENTS.empty?
     end
 
-    def notification(env, exception, options={})
+    def self.notification(env, exception, options={})
+      self.notification_mail(env, exception, options).try(:deliver_later) # Rails 4
+    end
+
+    def notification_mail(env, exception, options={})
       original_exception = if exception.respond_to?(:original_exception)
         exception.original_exception
       elsif exception.respond_to?(:continued_exception)
